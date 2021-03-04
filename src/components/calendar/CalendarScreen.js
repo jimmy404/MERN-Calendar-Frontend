@@ -19,6 +19,20 @@ const events = [{
 }];
 
 export const CalendarScreen = () => {
+
+  const eventStyleGetter = (event, start, end, isSelected) => {
+    const style = {
+      backgroundColor: '#367CF7',
+      borderRadius: '0px',
+      opacity: 0.8,
+      display: 'block',
+      color: 'white'
+    }
+    return {
+      style
+    }
+  };
+
   return (
     <div className="calendar-screen">
       <NavBar />
@@ -29,6 +43,7 @@ export const CalendarScreen = () => {
         startAccessor="start"
         endAccessor="end"
         messages={ messages }
+        eventPropGetter={ eventStyleGetter }
       />
     </div>
   );

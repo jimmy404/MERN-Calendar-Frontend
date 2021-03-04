@@ -3,7 +3,11 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 
 import { NavBar } from '../ui/NavBar';
+import { messages } from '../../helpers/calendar-messages-es';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import 'moment/locale/es';
+
+moment.locale('es');
 
 const localizer = momentLocalizer(moment);
 
@@ -24,6 +28,7 @@ export const CalendarScreen = () => {
         events={ events }
         startAccessor="start"
         endAccessor="end"
+        messages={ messages }
       />
     </div>
   );

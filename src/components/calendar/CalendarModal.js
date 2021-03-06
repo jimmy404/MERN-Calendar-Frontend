@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import DateTimePicker from 'react-datetime-picker';
 import { useDispatch, useSelector } from 'react-redux';
 import { uiCloseModal } from '../../actions/ui';
+import { eventAddNew } from '../../actions/events';
 
 const customStyles = {
   content : {
@@ -82,6 +83,15 @@ export const CalendarModal = () => {
       return setTitleValid(false);
     }
     //TODO > Grabar datos DB
+    dispatch(eventAddNew({
+      ...formValues,
+      id: new Date().getTime(),
+      user: {
+        _id: '123',
+        name: 'jimmy'
+      }
+    }));
+
     setTitleValid(true);
     closeModal();
   };
